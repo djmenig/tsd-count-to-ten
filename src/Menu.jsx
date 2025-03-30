@@ -36,6 +36,7 @@ function BasicMenu() {
         }}
       >
         <MenuItem onClick={handleClose}>Game Type</MenuItem>
+        <MenuItem onClick={handleClose}>How To Play</MenuItem>
         <MenuItem onClick={handleClose}>About</MenuItem>
       </Menu>
     </div>
