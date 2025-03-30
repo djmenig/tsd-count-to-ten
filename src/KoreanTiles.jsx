@@ -11,6 +11,7 @@ import ilgop from './assets/sounds/ilgop.mp3';
 import yeodeol from './assets/sounds/yeodeol.mp3';
 import ahop from './assets/sounds/ahop.mp3';
 import yeol from './assets/sounds/yeol.mp3';
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 
 function KoreanTiles() {
     const wordsAndSymbols = React.useMemo(() => [
@@ -53,9 +54,11 @@ function KoreanTiles() {
                         cursor: "pointer",
                     }}
                 >
+                    
                     <ruby style={{display: "inline-block", fontWeight: "bold", fontSize: "2rem", textAlign: "center"}}>{n.symbol}
                         <rt style={{display: "block", fontWeight: "400", fontSize: "1rem", color: "gray", textAlign: "center"}}>({n.word})</rt>
                     </ruby>
+                    <VolumeUpIcon sx={{ fontSize: ".5rem", color: "gray" }}/>
                 </Paper>
             ))}
         </Box>
