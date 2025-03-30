@@ -43,7 +43,7 @@ function KoreanTiles() {
             }}
         >
             {wordsAndSymbols.map((n) => (
-                <Paper onClick={() => {handleClick(n.sound)}}
+                <Paper key={n.id} onClick={() => {handleClick(n.sound)}}
                     sx={{
                         display: "flex",
                         flexDirection: "column",

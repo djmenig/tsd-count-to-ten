@@ -18,7 +18,7 @@ function NumberTiles() {
             }}
         >
             {numbers.map((n) => (
-                <Paper
+                <Paper key={n}
                     sx={{
                         display: "flex",
                         justifyContent: "center",
