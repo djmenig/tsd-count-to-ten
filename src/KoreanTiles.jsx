@@ -50,6 +50,7 @@ function KoreanTiles() {
                         alignItems: "center",
                         width: "100px",
                         height: "100px",
+                        cursor: "pointer",
                     }}
                 >
                     <ruby style={{display: "inline-block", fontWeight: "bold", fontSize: "2rem", textAlign: "center"}}>{n.symbol}
