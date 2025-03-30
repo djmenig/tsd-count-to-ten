@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
-import {DndContext} from '@dnd-kit/core';
-import {Draggable} from './Draggable';
-import {Droppable} from './Droppable';
+// import {DndContext} from '@dnd-kit/core';
+// import {Draggable} from './Draggable';
+// import {Droppable} from './Droppable';
 
 function NumberTiles() {
     const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];

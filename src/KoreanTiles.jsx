@@ -13,23 +13,23 @@ import ahop from './assets/sounds/ahop.mp3';
 import yeol from './assets/sounds/yeol.mp3';
 
 function KoreanTiles() {
-    const wordsAndSymbols = [
-        { id: 1, word: "hana", symbol: "하나", sound: hana },
-        { id: 2, word: "dul", symbol: "둘", sound: dul },
-        { id: 3, word: "set", symbol: "셋", sound: set },
-        { id: 4, word: "net", symbol: "넷", sound: net },
-        { id: 5, word: "daseot", symbol: "다섯", sound: daseot },
-        { id: 6, word: "yaseot", symbol: "여섯", sound: yaseot },
-        { id: 7, word: "ilgop", symbol: "일곱", sound: ilgop },
-        { id: 8, word: "yeodeol", symbol: "여덟", sound: yeodeol },
-        { id: 9, word: "ahop", symbol: "아홉", sound: ahop },
-        { id: 10, word: "yeol", symbol: "열", sound: yeol }
-    ];
+    const wordsAndSymbols = React.useMemo(() => [
+        { id: 1, word: "hana", symbol: "하나", sound: new Audio(hana) },
+        { id: 2, word: "dul", symbol: "둘", sound: new Audio(dul) },
+        { id: 3, word: "set", symbol: "셋", sound: new Audio(set) },
+        { id: 4, word: "net", symbol: "넷", sound: new Audio(net) },
+        { id: 5, word: "daseot", symbol: "다섯", sound: new Audio(daseot) },
+        { id: 6, word: "yaseot", symbol: "여섯", sound: new Audio(yaseot) },
+        { id: 7, word: "ilgop", symbol: "일곱", sound: new Audio(ilgop) },
+        { id: 8, word: "yeodeol", symbol: "여덟", sound: new Audio(yeodeol) },
+        { id: 9, word: "ahop", symbol: "아홉", sound: new Audio(ahop) },
+        { id: 10, word: "yeol", symbol: "열", sound: new Audio(yeol) },
+    ]);
 
     function handleClick(sound) {
         console.log("Tile has been clicked!");
-        const audio = new Audio(sound);
-        audio.play();
+        sound.currentTime= 0;
+        sound.play();
     }
 
     return (    
