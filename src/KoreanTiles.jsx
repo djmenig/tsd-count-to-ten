@@ -12,6 +12,34 @@ import yeodeol from './assets/sounds/yeodeol.mp3';
 import ahop from './assets/sounds/ahop.mp3';
 import yeol from './assets/sounds/yeol.mp3';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+import { useDroppable} from '@dnd-kit/core'
+
+function DroppableTile({ number, symbol, word, onClick }) {
+    const { setNodeRef, isOver, listeners } = useDroppable({
+        id: `droppable-${number}`,
+    });
+
+    return (
+        <Paper ref={setNodeRef} onClick={onClick}
+            sx={{
+                minHeight: "100px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100px",
+                height: "100px",
+                cursor: "pointer",
+                border: isOver ? '1px solid #1976d2' : '1px gray',
+            }}
+        >
+            <ruby style={{display: "inline-block", fontWeight: "bold", fontSize: "2rem", textAlign: "center"}}>{symbol}
+                <rt style={{display: "block", fontWeight: "400", fontSize: "1rem", color: "gray", textAlign: "center"}}>({word})</rt>
+            </ruby>
+            <VolumeUpIcon sx={{ fontSize: ".5rem", color: "gray" }}/>
+        </Paper>
+    );
+}
 
 function KoreanTiles() {
     const wordsAndSymbols = React.useMemo(() => [
@@ -33,34 +61,19 @@ function KoreanTiles() {
         sound.play();
     }
 
-    return (    
-        <Box
-            sx={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: "16px",
-                placeItems: "center",
-            }}
-        >
-            {wordsAndSymbols.map((n) => (
-                <Paper key={n.id} onClick={() => {handleClick(n.sound, n.id)}}
-                    sx={{
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        width: "100px",
-                        height: "100px",
-                        cursor: "pointer",
-                    }}
-                >
-                    <ruby style={{display: "inline-block", fontWeight: "bold", fontSize: "2rem", textAlign: "center"}}>{n.symbol}
-                        <rt style={{display: "block", fontWeight: "400", fontSize: "1rem", color: "gray", textAlign: "center"}}>({n.word})</rt>
-                    </ruby>
-                    <VolumeUpIcon sx={{ fontSize: ".5rem", color: "gray" }}/>
-                </Paper>
-            ))}
-        </Box>
+    return (
+            <Box
+                sx={{
+                    display: "grid",
+                    gridTemplateColumns: "1fr 1fr",
+                    gap: "16px",
+                    placeItems: "center",
+                }}
+            >
+                {wordsAndSymbols.map((n) => (
+                    <DroppableTile key={n.id} number={n.id} symbol={n.symbol} word={n.word} onClick={() => {handleClick(n.sound, n.id)}} />
+                ))}
+            </Box>
     )
 }
 
