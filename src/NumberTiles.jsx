@@ -21,6 +21,7 @@ function DraggableTile({ number }) {
                         alignItems: "center",
                         width: "48px",
                         height: "48px",
+                        cursor: "grab",
                     }}
                 >
                     <span style={{fontWeight: "500", fontSize: "1.5rem", textAlign: "center"}}>{number}</span>
