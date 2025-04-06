@@ -27,8 +27,8 @@ function KoreanTiles() {
         { id: 10, word: "yeol", symbol: "열", sound: new Audio(yeol) },
     ]);
 
-    function handleClick(sound) {
-        console.log("Tile has been clicked!");
+    function handleClick(sound, id) {
+        console.log(`Tile ${id} has been clicked!`);
         sound.currentTime= 0;
         sound.play();
     }
@@ -43,7 +43,7 @@ function KoreanTiles() {
             }}
         >
             {wordsAndSymbols.map((n) => (
-                <Paper key={n.id} onClick={() => {handleClick(n.sound)}}
+                <Paper key={n.id} onClick={() => {handleClick(n.sound, n.id)}}
                     sx={{
                         display: "flex",
                         flexDirection: "column",
@@ -54,7 +54,6 @@ function KoreanTiles() {
                         cursor: "pointer",
                     }}
                 >
-                    
                     <ruby style={{display: "inline-block", fontWeight: "bold", fontSize: "2rem", textAlign: "center"}}>{n.symbol}
                         <rt style={{display: "block", fontWeight: "400", fontSize: "1rem", color: "gray", textAlign: "center"}}>({n.word})</rt>
                     </ruby>
