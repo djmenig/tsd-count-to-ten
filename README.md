@@ -9,3 +9,4 @@
 - [ ] Add animations when match is made
 - [ ] Add animation and congratulations alert/modal when all matches have been made
 - [ ] Add modals for all menu entries
+- [ ] Adjust KoreanTiles font styles for a more clean look (margins?)
