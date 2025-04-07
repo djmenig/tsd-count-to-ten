@@ -11,3 +11,5 @@
 - [ ] Add modals for all menu entries
 - [ ] Adjust KoreanTiles font styles for a more clean look (margins?)
 - [ ] Add grabbing cursor when dragging NumberTiles
+
+<img src="/public/alphaScreenshot1.png" width="250" />
