@@ -33,10 +33,10 @@ function DroppableTile({ number, symbol, word, onClick }) {
                 border: isOver ? '1px solid #1976d2' : '1px gray',
             }}
         >
-            <ruby style={{display: "inline-block", fontWeight: "bold", fontSize: "2rem", textAlign: "center"}}>{symbol}
+            <ruby style={{display: "inline-block", fontFamily: "Noto Sans KR", fontWeight: "bold", fontSize: "2rem", textAlign: "center"}}>{symbol}
                 <rt style={{display: "block", fontWeight: "400", fontSize: "1rem", color: "gray", textAlign: "center"}}>({word})</rt>
             </ruby>
-            <VolumeUpIcon sx={{ fontSize: ".5rem", color: "gray" }}/>
+            <VolumeUpIcon sx={{ fontSize: ".75rem", color: "gray" }}/>
         </Paper>
     );
 }
