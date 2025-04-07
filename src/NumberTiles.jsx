@@ -30,9 +30,7 @@ function DraggableTile({ number }) {
 }
 
 
-function NumberTiles() {
-    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
+function NumberTiles({ numbers }) {
     return (    
             <Box
                 sx={{
@@ -46,7 +44,7 @@ function NumberTiles() {
                     <DraggableTile key={n} number={n}></DraggableTile>
                 ))}
             </Box>
-    )
+    );
 }
 
 export default NumberTiles;
