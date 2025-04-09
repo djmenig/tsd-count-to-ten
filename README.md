@@ -4,7 +4,7 @@
 
 ### To do:
 - [x] ~~Lift NumberTiles.jsx state~~
-- [ ] Pass NumberTiles state (the id) back to its parent for console.log info
+- [x] ~~Pass NumberTiles state (the id) back to its parent for console.log info~~
 - [ ] Lift KoreanTiles.jsx state
 - [ ] Add matching system
 - [ ] Add animations when match is made
