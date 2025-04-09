@@ -5,7 +5,7 @@
 ### To do:
 - [x] ~~Lift NumberTiles.jsx state~~
 - [x] ~~Pass NumberTiles state (the id) back to its parent for console.log info~~
-- [ ] Lift KoreanTiles.jsx state
+- [x] Lift KoreanTiles.jsx state
 - [ ] Add matching system
 - [ ] Add animations when match is made
 - [ ] Add animation and congratulations alert/modal when all matches have been made
