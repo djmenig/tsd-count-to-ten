@@ -28,14 +28,29 @@ function App() {
     sound.play();
   }
 
-  function handleOnDragClick(event) {
-    event.over !== null && console.log(`Tile "${event.active.id}" has been dropped.`);
+  function handleOnDragEnd(event) {
+    const draggedTileId = event.active.id.slice(-2);
+    let droppedTileId;
+    if (event.over !== null) {
+      droppedTileId = event.over.id.slice(-2);
+      if (draggedTileId === droppedTileId) {
+        console.log(`Tile "${event.active.id}" has been dropped. Match Made!`);
+        //play correct sound
+        //trigger animation
+      } else {
+        console.log(`Tile "${event.active.id}" has been dropped. No Match.`);
+        //play incorrect sound
+        //trigger animation
+      }
+    } else {
+      droppedTileId = null;
     };
+  };
 
   return (
     <>
       <Grid container spacing={2} alignItems={"center"}>
-        <DndContext onDragEnd={handleOnDragClick}>
+        <DndContext onDragEnd={handleOnDragEnd}>
           <Grid size={3}>
             <NumberTiles numbers={numbers} />
           </Grid>
