@@ -8,6 +8,8 @@ import ilgop from './ilgop.mp3';
 import yeodeol from './yeodeol.mp3';
 import ahop from './ahop.mp3';
 import yeol from './yeol.mp3';
+import correct1 from './correct1.mp3';
+import incorrect1 from './incorrect1.mp3';
 
 const sounds = {
     hana,
@@ -19,7 +21,9 @@ const sounds = {
     ilgop,
     yeodeol,
     ahop,
-    yeol
+    yeol,
+    correct1,
+    incorrect1
 };
 
 export default sounds;

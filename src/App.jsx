@@ -21,6 +21,10 @@ function App() {
     { id: 9, word: "ahop", symbol: "아홉", sound: new Audio(sounds.ahop) },
     { id: 10, word: "yeol", symbol: "열", sound: new Audio(sounds.yeol) },
   ]);
+  const soundEffects = React.useMemo(() => [
+    { id: 1, sound: new Audio(sounds.correct1) },
+    { id: 2, sound: new Audio(sounds.incorrect1) },
+  ]);
 
   function handleClick(sound, word) {
     console.log(`Tile "${word}" has been clicked!`);
@@ -35,11 +39,13 @@ function App() {
       droppedTileId = event.over.id.slice(-2);
       if (draggedTileId === droppedTileId) {
         console.log(`Tile "${event.active.id}" has been dropped. Match Made!`);
-        //play correct sound
+        soundEffects[0].currentTime = 0;
+        soundEffects[0].sound.play();
         //trigger animation
       } else {
         console.log(`Tile "${event.active.id}" has been dropped. No Match.`);
-        //play incorrect sound
+        soundEffects.currentTime= 0;
+        soundEffects[1].sound.play();
         //trigger animation
       }
     } else {
