@@ -8,7 +8,8 @@ import sounds from "./assets/sounds/sounds";
 
 function App() {
   //component data
-  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const [numbers, setNumbers] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+
   const wordsAndSymbols = React.useMemo(() => [
     { id: 1, word: "hana", symbol: "하나", sound: new Audio(sounds.hana) },
     { id: 2, word: "dul", symbol: "둘", sound: new Audio(sounds.dul) },
@@ -32,6 +33,13 @@ function App() {
     sound.play();
   }
 
+  function deleteTile(id) {
+    const idNumber = id.replace(/[^0-9]/g, '');
+    console.log(`Call to delete tile #${idNumber}`);
+    setNumbers(numbers.filter((number) => number != idNumber));
+    console.log(numbers);
+  }
+
   function handleOnDragEnd(event) {
     const draggedTileId = event.active.id.slice(-2);
     let droppedTileId;
@@ -41,7 +49,10 @@ function App() {
         console.log(`Tile "${event.active.id}" has been dropped. Match Made!`);
         soundEffects[0].currentTime = 0;
         soundEffects[0].sound.play();
+        //deleteTile function
+        deleteTile(event.active.id);
         //trigger animation
+
       } else {
         console.log(`Tile "${event.active.id}" has been dropped. No Match.`);
         soundEffects.currentTime= 0;
