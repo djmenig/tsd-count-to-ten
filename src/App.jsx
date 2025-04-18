@@ -9,7 +9,7 @@ import sounds from "./assets/sounds/sounds";
 function App() {
   //component data
   const [numbers, setNumbers] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-
+  const [matchedTileData, setMatchedTileData] = useState({});
   const wordsAndSymbols = React.useMemo(() => [
     { id: 1, word: "hana", symbol: "하나", sound: new Audio(sounds.hana) },
     { id: 2, word: "dul", symbol: "둘", sound: new Audio(sounds.dul) },
@@ -28,18 +28,14 @@ function App() {
   ]);
 
   function handleClick(sound, word) {
-    console.log(`Tile "${word}" has been clicked!`);
+    //console.log(`Tile "${word}" has been clicked!`);
     sound.currentTime= 0;
     sound.play();
-  }
-
+  };
   function deleteTile(id) {
     const idNumber = id.replace(/[^0-9]/g, '');
-    console.log(`Call to delete tile #${idNumber}`);
     setNumbers(numbers.filter((number) => number != idNumber));
-    console.log(numbers);
-  }
-
+  };
   function handleOnDragEnd(event) {
     const draggedTileId = event.active.id.slice(-2);
     let droppedTileId;
@@ -49,9 +45,22 @@ function App() {
         console.log(`Tile "${event.active.id}" has been dropped. Match Made!`);
         soundEffects[0].currentTime = 0;
         soundEffects[0].sound.play();
+        //set matched NumberTile end position
+        setMatchedTileData((prev) => ({
+          ...prev,
+          [event.active.id]: {
+            x: event.delta.x,
+            y: event.delta.y,
+            isAnimating: true,
+          } 
+        }));
         //deleteTile function
-        deleteTile(event.active.id);
+        setTimeout(() => {
+          deleteTile(event.active.id);
+          }, 800);
+        
         //trigger animation
+
 
       } else {
         console.log(`Tile "${event.active.id}" has been dropped. No Match.`);
@@ -69,7 +78,7 @@ function App() {
       <Grid container spacing={2} alignItems={"center"}>
         <DndContext onDragEnd={handleOnDragEnd}>
           <Grid size={3}>
-            <NumberTiles numbers={numbers} />
+            <NumberTiles numbers={numbers} matchedTileData={matchedTileData} />
           </Grid>
           <Grid size={9}>
             <KoreanTiles wordsAndSymbols={wordsAndSymbols} handleClick={handleClick} />
@@ -78,7 +87,8 @@ function App() {
         <BasicMenu />
       </Grid>
     </>
-  )
-}
+  );
+
+};
 
 export default App
