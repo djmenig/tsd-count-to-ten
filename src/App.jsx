@@ -57,7 +57,7 @@ function App() {
         //deleteTile function
         setTimeout(() => {
           deleteTile(event.active.id);
-          }, 800);
+          }, 1000);
         
         //trigger animation
 

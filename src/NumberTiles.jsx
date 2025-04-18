@@ -36,9 +36,9 @@ function DraggableTile({ number, matchedTileData }) {
                 x: isAnimating ? matchedTileData[`draggable-${number}`].x : transform?.x,
                 y: isAnimating ? matchedTileData[`draggable-${number}`].y : transform?.y,
                 opacity: isAnimating ? 0 : 1,
-                scale: isAnimating ? 0.7 : 1,
-                rotate: isAnimating ? 360 : 0,
-                transition: isAnimating ? {duration: 0.8} : {duration: 0},
+                scale: isAnimating ? [1, 2, 0.7] : 1,
+                rotate: isAnimating ? 720 : 0,
+                transition: isAnimating ? {duration: 1} : {duration: 0},
             }}
             sx={{
                 display: "flex",
