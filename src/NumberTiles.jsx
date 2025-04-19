@@ -2,7 +2,8 @@ import * as React from 'react';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import { useDraggable } from '@dnd-kit/core';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, color } from 'framer-motion';
+import { duration } from '@mui/material';
 
 //pass the MUI Paper component to the motion.create() function to create a motion component version of Paper
 const MotionPaper = motion.create(Paper);
@@ -14,7 +15,8 @@ function DraggableTile({ number, matchedTileData }) {
 
     const isMatched = matchedTileData[`draggable-${number}`];
     const isAnimating = matchedTileData[`draggable-${number}`]?.isAnimating;
-
+    const noMatch = matchedTileData[`draggable-${number}`]?.noMatch;
+    console.log("No Match:", noMatch);
     const style = {
         transform: isMatched
             ? `translate(${matchedTileData[`draggable-${number}`].x}px, ${matchedTileData[`draggable-${number}`].y} )` 
@@ -31,14 +33,15 @@ function DraggableTile({ number, matchedTileData }) {
             style={style}
             {...(!isAnimating ? listeners : {})} 
             {...(!isAnimating ? attributes : {})} 
-            // initial= {{ x: 0, y:0, opacity: 1, scale: 1, rotate: 0}}
+            initial= {{ x: 0, y:0, opacity: 1, scale: 1, rotate: 0}}
             animate={{ 
                 x: isAnimating ? matchedTileData[`draggable-${number}`].x : transform?.x,
                 y: isAnimating ? matchedTileData[`draggable-${number}`].y : transform?.y,
                 opacity: isAnimating ? 0 : 1,
-                scale: isAnimating ? [1, 2, 0.7] : 1,
-                rotate: isAnimating ? 720 : 0,
-                transition: isAnimating ? {duration: 1} : {duration: 0},
+                scale: isAnimating ? [1, 2, 0.5] : 1,
+                border: noMatch ? ["none", "2px solid #ed1a3b", "none"] : null,
+                rotate: isAnimating ? 720 : noMatch ? [0, 5, -5, 5, -5, 5, -5, 5, -5, 5, -5, 5, -5, 0] : 0,
+                transition: isAnimating || noMatch ? { duration: 1, opacity: {duration: 0.5, delay: 0.5,} } : {duration: 0},
             }}
             sx={{
                 display: "flex",

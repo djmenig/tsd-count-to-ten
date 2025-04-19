@@ -36,6 +36,16 @@ function App() {
     const idNumber = id.replace(/[^0-9]/g, '');
     setNumbers(numbers.filter((number) => number != idNumber));
   };
+  function resetNoMatch(id) {
+    const stringId = String(id);
+    setMatchedTileData((prev) => ({
+      ...prev,
+      [id]: {
+        noMatch: false,
+      }
+    }));
+  };
+
   function handleOnDragEnd(event) {
     const draggedTileId = event.active.id.slice(-2);
     let droppedTileId;
@@ -43,9 +53,8 @@ function App() {
       droppedTileId = event.over.id.slice(-2);
       if (draggedTileId === droppedTileId) {
         console.log(`Tile "${event.active.id}" has been dropped. Match Made!`);
-        soundEffects[0].currentTime = 0;
+        soundEffects[0].sound.currentTime = 0;
         soundEffects[0].sound.play();
-        //set matched NumberTile end position
         setMatchedTileData((prev) => ({
           ...prev,
           [event.active.id]: {
@@ -54,19 +63,23 @@ function App() {
             isAnimating: true,
           } 
         }));
-        //deleteTile function
         setTimeout(() => {
           deleteTile(event.active.id);
           }, 1000);
-        
-        //trigger animation
-
 
       } else {
         console.log(`Tile "${event.active.id}" has been dropped. No Match.`);
-        soundEffects.currentTime= 0;
+        soundEffects[1].sound.currentTime = 0;
         soundEffects[1].sound.play();
-        //trigger animation
+        setMatchedTileData((prev) => ({
+          ...prev,
+          [event.active.id]: {
+            noMatch: true,
+          }
+        }));
+        setTimeout(() => {
+          resetNoMatch(event.active.id);
+        }, 1000);
       }
     } else {
       droppedTileId = null;
