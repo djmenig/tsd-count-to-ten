@@ -8,7 +8,8 @@
 - [x] ~~Lift KoreanTiles.jsx state~~
 - [x] ~~Add matching system~~
 - [x] ~~Add animations when match is made~~
-- [ ] Add animation when dragged tile is not a match
+- [x] ~~Add animation when dragged tile is not a match~~
+- [ ] Pre-load audio files
 - [ ] Add animation and congratulations alert/modal when all matches have been made
 - [ ] Add modals for all menu entries
 - [ ] Adjust KoreanTiles font styles for a more clean look (margins?)
