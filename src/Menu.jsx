@@ -22,7 +22,7 @@ function BasicMenu() {
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
-        style={{position: "fixed", top: 0, right: 0}}
+        style={{position: "absolute", top: 5, right: 0}}
       >
         <MenuIcon />
       </Button>

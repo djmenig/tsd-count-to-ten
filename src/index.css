@@ -37,6 +37,7 @@ body {
 #gameBoard {
   background-image: url("./assets/images/paper.png");
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
 }
