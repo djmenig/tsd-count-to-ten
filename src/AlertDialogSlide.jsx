@@ -14,12 +14,10 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function AlertDialogSlide(props) {
   const [open, setOpen] = React.useState(false);
   React.useEffect(() => {
-    if (props.gameOver && open === false) { setOpen(true) };
-});
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+    if (props.gameOver && open === false) {
+      setOpen(true);
+    }
+  }, [props.gameOver]);
 
   const handleClose = () => {
     setOpen(false);
@@ -36,6 +34,7 @@ export default function AlertDialogSlide(props) {
         keepMounted
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
+        BackdropProps={{style: {backgroundColor: 'rgba(0, 0, 0, 0.05)'}}}
       >
         <DialogTitle>{"Great Work!"}</DialogTitle>
         <DialogContent>
@@ -45,7 +44,7 @@ export default function AlertDialogSlide(props) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Play Again</Button>
-          <Button onClick={handleClose}>Close</Button>
+          <Button onClick={handleClose}>Exit Game</Button>
         </DialogActions>
       </Dialog>
     </React.Fragment>
