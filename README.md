@@ -12,6 +12,7 @@
 - [ ] Add animation and congratulations alert/modal when all matches have been made
 - [ ] Add modals for all menu entries
 - [ ] Adjust KoreanTiles font styles for a more clean look (margins?)
+- [ ] Adjust tiles and media queries for a organized look on all devices
 - [ ] Add grabbing cursor when dragging NumberTiles
 
 <img src="/public/alphaScreenshot1.png" width="250" />
