@@ -9,6 +9,7 @@
 - [x] ~~Add matching system~~
 - [x] ~~Add animations when match is made~~
 - [x] ~~Add animation when dragged tile is not a match~~
+- [ ] Add reset game function
 - [ ] Add animation and congratulations alert/modal when all matches have been made
 - [ ] Add modals for all menu entries
 - [ ] Adjust KoreanTiles font styles for a more clean look (margins?)
