@@ -34,6 +34,13 @@ body {
   z-index: 0; /* Places particles behind other content */
 }
 
+#gameBoard {
+  background-image: url("./assets/images/paper.png");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     color: rgba(255, 255, 255, 0.87);
@@ -44,5 +51,16 @@ body {
   :root {
     color: #000;
     background-color: #fff;
+  }
+}
+@media screen and (max-width: 430px) {
+  #gameBoard {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+@media screen and (min-width: 431px) {
+  #gameBoard {
+    padding: 50px;
   }
 }

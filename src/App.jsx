@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import NumberTiles from "./NumberTiles";
 import KoreanTiles from "./KoreanTiles";
-import { Grid } from "@mui/material";
+import { Grid, Modal } from "@mui/material";
 import BasicMenu from "./Menu";
 import { DndContext } from "@dnd-kit/core";
 import sounds from "./assets/sounds/sounds";
 import Particles from "@tsparticles/react";
 import { loadConfettiPreset } from "@tsparticles/preset-confetti";
+import AlertDialogSlide from "./AlertDialogSlide";
+import Paper from "@mui/material/Paper";
 
 function App() {
   const [gameOver, setGameOver] = useState(false);
@@ -167,19 +169,21 @@ function App() {
 
   return (
     <>
-      <Grid container spacing={2} alignItems={"center"}>
-        <DndContext onDragEnd={handleOnDragEnd}>
-          <Grid size={3}>
-            <NumberTiles numbers={numbers} matchedTileData={matchedTileData} />
-          </Grid>
-          <Grid size={9}>
-            <KoreanTiles wordsAndSymbols={wordsAndSymbols} handleClick={handleClick} />
-          </Grid>
-        </DndContext>
+      <Paper id="gameBoard">
         <BasicMenu />
-      </Grid>
+        <Grid container spacing={2} alignItems={"center"}>
+          <DndContext onDragEnd={handleOnDragEnd}>
+            <Grid size={3}>
+              <NumberTiles numbers={numbers} matchedTileData={matchedTileData} />
+            </Grid>
+            <Grid size={9}>
+              <KoreanTiles wordsAndSymbols={wordsAndSymbols} handleClick={handleClick} />
+            </Grid>
+          </DndContext>
+        </Grid>
+      </Paper>
       { gameOver && <Particles id="tsparticles" particlesLoaded={particlesInit} /> }
-
+      <AlertDialogSlide gameOver={gameOver} />
     </>
   );
 
