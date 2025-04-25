@@ -16,7 +16,7 @@ function DraggableTile({ number, matchedTileData }) {
     const isMatched = matchedTileData[`draggable-${number}`];
     const isAnimating = matchedTileData[`draggable-${number}`]?.isAnimating;
     const noMatch = matchedTileData[`draggable-${number}`]?.noMatch;
-    console.log("No Match:", noMatch);
+    // console.log("No Match:", noMatch);
     const style = {
         transform: isMatched
             ? `translate(${matchedTileData[`draggable-${number}`].x}px, ${matchedTileData[`draggable-${number}`].y} )` 

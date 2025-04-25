@@ -5,9 +5,11 @@ import { Grid } from "@mui/material";
 import BasicMenu from "./Menu";
 import { DndContext } from "@dnd-kit/core";
 import sounds from "./assets/sounds/sounds";
+import Particles from "@tsparticles/react";
+import { loadConfettiPreset } from "@tsparticles/preset-confetti";
 
 function App() {
-  //component data
+  const [gameOver, setGameOver] = useState(false);
   const [numbers, setNumbers] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   const [matchedTileData, setMatchedTileData] = useState({});
   const wordsAndSymbols = React.useMemo(() => [
@@ -35,6 +37,8 @@ function App() {
   function deleteTile(id) {
     const idNumber = id.replace(/[^0-9]/g, '');
     setNumbers(numbers.filter((number) => number != idNumber));
+    console.log(`Numbers from deleteTile function: ${numbers}`);
+    numbers.length < 2 && setGameOver(true);
   };
   function resetNoMatch(id) {
     const stringId = String(id);
@@ -85,6 +89,81 @@ function App() {
       droppedTileId = null;
     };
   };
+  
+  const particlesInit = async () => {
+    await loadConfettiPreset(tsParticles);
+
+    await tsParticles.load({
+      options: {
+        emitters: [
+          {
+            life: {
+              duration: 5,
+              count: 0,
+              delay: .5,
+            },
+            position: {
+              // x: 0,
+              // y: 30,
+            },
+            particles: {
+              move: {
+                direction: "top-right",
+              },
+            },
+          },
+          {
+            life: {
+              duration: 5,
+              count: 0,
+              delay: 1,
+            },
+            position: {
+              // x: 100,
+              // y: 30,
+            },
+            particles: {
+              move: {
+                direction: "top-left",
+              },
+            },
+          },
+          {
+            life: {
+              duration: 5,
+              count: 0,
+              delay: 2,
+            },
+            position: {
+              // x: 0,
+              // y: 30,
+            },
+            particles: {
+              move: {
+                direction: "top-right",
+              },
+            },
+          },
+          {
+            life: {
+              duration: 0,
+              count: 0,
+            },
+            position: {
+              // x: 0,
+              // y: 30,
+            },
+            particles: {
+              move: {
+                direction: "top-left",
+              },
+            },
+          },
+        ],
+        preset: "confetti",
+      }      
+    });
+  };
 
   return (
     <>
@@ -99,6 +178,8 @@ function App() {
         </DndContext>
         <BasicMenu />
       </Grid>
+      { gameOver && <Particles id="tsparticles" particlesLoaded={particlesInit} /> }
+
     </>
   );
 
