@@ -11,6 +11,7 @@
 - [x] ~~Add animation when dragged tile is not a match~~
 - [ ] Add reset game function
 - [ ] Add animation and congratulations alert/modal when all matches have been made
+- [ ] Fix Numbers array bug - update Numbers array before removing draggable tile
 - [ ] Add modals for all menu entries
 - [ ] Adjust KoreanTiles font styles for a more clean look (margins?)
 - [ ] Adjust tiles and media queries for a organized look on all devices
