@@ -169,7 +169,7 @@ function App() {
 
   return (
     <>
-      <Paper id="gameBoard">
+      <Paper elevation='5' id="gameBoard">
         <BasicMenu />
         <Grid container spacing={2} alignItems={"center"}>
           <DndContext onDragEnd={handleOnDragEnd}>
