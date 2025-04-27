@@ -23,6 +23,12 @@ export default function AlertDialogSlide(props) {
     setOpen(false);
   };
 
+  const handleCloseAndReset = () => {
+    props.gameReset;
+    setOpen(false);
+    
+  }
+
   return (
     <React.Fragment>
       {/* <Button variant="outlined" onClick={handleClickOpen}>
@@ -43,7 +49,7 @@ export default function AlertDialogSlide(props) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Play Again</Button>
+          <Button onClick={handleCloseAndReset}>Play Again</Button>
           <Button onClick={handleClose}>Exit Game</Button>
         </DialogActions>
       </Dialog>

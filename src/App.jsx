@@ -5,10 +5,9 @@ import { Grid, Modal } from "@mui/material";
 import BasicMenu from "./Menu";
 import { DndContext } from "@dnd-kit/core";
 import sounds from "./assets/sounds/sounds";
-import Particles from "@tsparticles/react";
-import { loadConfettiPreset } from "@tsparticles/preset-confetti";
 import AlertDialogSlide from "./AlertDialogSlide";
 import Paper from "@mui/material/Paper";
+import ConfettiParticles from "./ConfettiParticles";
 
 function App() {
   const [gameOver, setGameOver] = useState(false);
@@ -51,6 +50,12 @@ function App() {
       }
     }));
   };
+//reset function
+  const gameReset = () => {
+    setGameOver(false);
+    setNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    setMatchedTileData({});
+  };
 
   function handleOnDragEnd(event) {
     const draggedTileId = event.active.id.slice(-2);
@@ -91,81 +96,6 @@ function App() {
       droppedTileId = null;
     };
   };
-  
-  const particlesInit = async () => {
-    await loadConfettiPreset(tsParticles);
-
-    await tsParticles.load({
-      options: {
-        emitters: [
-          {
-            life: {
-              duration: 5,
-              count: 0,
-              delay: .5,
-            },
-            position: {
-              // x: 0,
-              // y: 30,
-            },
-            particles: {
-              move: {
-                direction: "top-right",
-              },
-            },
-          },
-          {
-            life: {
-              duration: 5,
-              count: 0,
-              delay: 1,
-            },
-            position: {
-              // x: 100,
-              // y: 30,
-            },
-            particles: {
-              move: {
-                direction: "top-left",
-              },
-            },
-          },
-          {
-            life: {
-              duration: 5,
-              count: 0,
-              delay: 2,
-            },
-            position: {
-              // x: 0,
-              // y: 30,
-            },
-            particles: {
-              move: {
-                direction: "top-right",
-              },
-            },
-          },
-          {
-            life: {
-              duration: 0,
-              count: 0,
-            },
-            position: {
-              // x: 0,
-              // y: 30,
-            },
-            particles: {
-              move: {
-                direction: "top-left",
-              },
-            },
-          },
-        ],
-        preset: "confetti",
-      }      
-    });
-  };
 
   return (
     <>
@@ -181,9 +111,10 @@ function App() {
             </Grid>
           </DndContext>
         </Grid>
+        { gameOver && <ConfettiParticles /> }  
       </Paper>
-      { gameOver && <Particles id="tsparticles" particlesLoaded={particlesInit} /> }
-      <AlertDialogSlide gameOver={gameOver} />
+      
+      <AlertDialogSlide gameOver={gameOver} gameReset={gameReset} />
     </>
   );
 
