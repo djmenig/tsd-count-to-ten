@@ -24,9 +24,8 @@ export default function AlertDialogSlide(props) {
   };
 
   const handleCloseAndReset = () => {
-    props.gameReset;
+    props.gameReset();
     setOpen(false);
-    
   }
 
   return (

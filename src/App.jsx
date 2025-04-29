@@ -31,14 +31,12 @@ function App() {
   ]);
 
   function handleClick(sound, word) {
-    //console.log(`Tile "${word}" has been clicked!`);
     sound.currentTime= 0;
     sound.play();
   };
   function deleteTile(id) {
     const idNumber = id.replace(/[^0-9]/g, '');
     setNumbers(numbers.filter((number) => number != idNumber));
-    console.log(`Numbers from deleteTile function: ${numbers}`);
     numbers.length < 2 && setGameOver(true);
   };
   function resetNoMatch(id) {
@@ -50,8 +48,8 @@ function App() {
       }
     }));
   };
-//reset function
-  const gameReset = () => {
+  function gameReset() {
+    console.log("gameReset Triggered");
     setGameOver(false);
     setNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
     setMatchedTileData({});
@@ -63,7 +61,6 @@ function App() {
     if (event.over !== null) {
       droppedTileId = event.over.id.slice(-2);
       if (draggedTileId === droppedTileId) {
-        console.log(`Tile "${event.active.id}" has been dropped. Match Made!`);
         soundEffects[0].sound.currentTime = 0;
         soundEffects[0].sound.play();
         setMatchedTileData((prev) => ({
@@ -79,7 +76,6 @@ function App() {
           }, 1000);
 
       } else {
-        console.log(`Tile "${event.active.id}" has been dropped. No Match.`);
         soundEffects[1].sound.currentTime = 0;
         soundEffects[1].sound.play();
         setMatchedTileData((prev) => ({
@@ -111,7 +107,7 @@ function App() {
             </Grid>
           </DndContext>
         </Grid>
-        { gameOver && <ConfettiParticles /> }  
+        <ConfettiParticles gameOver={gameOver} />
       </Paper>
       
       <AlertDialogSlide gameOver={gameOver} gameReset={gameReset} />

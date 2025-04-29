@@ -10,8 +10,8 @@
 - [x] ~~Add animations when match is made~~
 - [x] ~~Add animation when dragged tile is not a match~~
 - [x] ~~Move Particles function to its own component~~
-- [ ] Trigger/Untrigger Particles function according to gameOver state
-- [ ] Complete reset game function
+- [x] ~~Unload Particles when gameReset function is called~~
+- [x] ~~Complete reset game function~~
 - [ ] Add animation and congratulations alert/modal when all matches have been made
 - [ ] Fix Numbers array bug - update Numbers array before removing draggable tile
 - [ ] Add modals for all menu entries
