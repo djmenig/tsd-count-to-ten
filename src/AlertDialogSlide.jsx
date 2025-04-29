@@ -49,7 +49,7 @@ export default function AlertDialogSlide(props) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCloseAndReset}>Play Again</Button>
-          <Button onClick={handleClose}>Exit Game</Button>
+          {/* <Button onClick={handleClose}>Exit Game</Button> */}
         </DialogActions>
       </Dialog>
     </React.Fragment>
