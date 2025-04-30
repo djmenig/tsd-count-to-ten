@@ -42,14 +42,9 @@ export default function AlertDialogSlide(props) {
         BackdropProps={{style: {backgroundColor: 'rgba(0, 0, 0, 0.05)'}}}
       >
         <DialogTitle>{"Great Work!"}</DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">
-
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
+        <img src="/favicon.png" alt="Tang Soo Do Logo" width={20} style={{margin: "0", padding: "0", alignSelf: "center"}} />
+        <DialogActions style={{justifyContent: "center"}}>
           <Button onClick={handleCloseAndReset}>Play Again</Button>
-          {/* <Button onClick={handleClose}>Exit Game</Button> */}
         </DialogActions>
       </Dialog>
     </React.Fragment>
