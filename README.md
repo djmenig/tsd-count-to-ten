@@ -12,7 +12,7 @@
 - [x] ~~Move Particles function to its own component~~
 - [x] ~~Unload Particles when gameReset function is called~~
 - [x] ~~Complete reset game function~~
-- [ ] Finish congratulations alert/modal when all matches have been made
+- [x] ~~Finish congratulations alert/modal when all matches have been made~~
 - [ ] Fix Numbers array bug - update Numbers array before removing draggable tile
 - [ ] Add modals for all menu entries
 - [ ] Adjust KoreanTiles font styles for a more clean look (margins?)
