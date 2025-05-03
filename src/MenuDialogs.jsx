@@ -7,9 +7,9 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import { ListItemIcon, ListItemText } from '@mui/material';
-import CircleIcon from '@mui/icons-material/Circle';
+import { ListItem, ListItemText } from '@mui/material';
+
+const date = new Date();
 
 const dialogContent = {
     gameType: {
@@ -55,7 +55,7 @@ const dialogContent = {
           </DialogContentText>
           <br />
           <br />
-          <small>© <Date></Date> Donald J. Menig. All Rights Reserved.</small>
+          <small>© {date.getFullYear()} Donald J. Menig. All Rights Reserved.</small>
         </>
       ),
     }
