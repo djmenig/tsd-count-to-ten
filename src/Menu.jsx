@@ -8,6 +8,7 @@ import MenuDialogs from './MenuDialogs';
 function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [dialogOpen, setDialogOpen] = React.useState(false);
+  const [menuItemValue, setMenuItemValue] = React.useState("");
 
   const open = Boolean(anchorEl);
 
@@ -17,8 +18,9 @@ function BasicMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const entryClick = () => {
+  function handleMenuItemClick(value) {
     setDialogOpen(true);
+    setMenuItemValue(value);
     handleClose();
   };
 
@@ -26,7 +28,7 @@ function BasicMenu() {
     <div>
       <Button
         id="basic-button"
-        aria-controls={open ? 'basic-menu' : undefined}
+        aria-controls={open ? 'basic-menu' : undefined} 
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
@@ -43,11 +45,11 @@ function BasicMenu() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={entryClick}>Game Type</MenuItem>
-        <MenuItem onClick={handleClose}>How To Play</MenuItem>
-        <MenuItem onClick={handleClose}>About</MenuItem>
+        <MenuItem onClick={ () => {handleMenuItemClick("gameType")} }>Game Type</MenuItem>
+        <MenuItem onClick={ () => {handleMenuItemClick("howToPlay")} }>How To Play</MenuItem>
+        <MenuItem onClick={ () => {handleMenuItemClick("about")} }>About</MenuItem>
       </Menu>
-      <MenuDialogs dialogOpen={dialogOpen} setDialogOpen={setDialogOpen} />
+      <MenuDialogs dialogOpen={dialogOpen} setDialogOpen={setDialogOpen} menuItemValue={menuItemValue} />
     </div>
   );
 }
