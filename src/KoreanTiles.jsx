@@ -9,8 +9,21 @@ function DroppableTile({ number, symbol, word, onClick }) {
         id: `droppable-${number}`,
     });
 
+    const [clicked, setClicked] = React.useState(false);
+
+    const handleOnClick = () => {
+        setClicked(true);
+        if (onClick) {
+            onClick();
+        } setTimeout(() => {
+            setClicked(false);
+        }, 200);
+    };
+
+    const elevation = clicked ? 1 : 3;
+
     return (
-        <Paper ref={setNodeRef} onClick={onClick}
+        <Paper ref={setNodeRef} onClick={handleOnClick} elevation={elevation}
             sx={{
                 minHeight: "100px",
                 display: "flex",

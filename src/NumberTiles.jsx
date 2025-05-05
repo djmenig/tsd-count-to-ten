@@ -29,6 +29,7 @@ function DraggableTile({ number, matchedTileData }) {
 
     return (
         <MotionPaper 
+            elevation={3}
             ref={setNodeRef}
             style={style}
             {...(!isAnimating ? listeners : {})} 
