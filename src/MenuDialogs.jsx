@@ -13,7 +13,7 @@ const date = new Date();
 
 const dialogContent = {
     gameType: {
-      dialogTitle: "Feature Unavailable",
+      dialogTitle: "FEATURE UNAVAILABLE",
       dialogContent: () => (
         <DialogContentText id="alert-dialog-slide-description">
           Coming soon. Please check back later!
@@ -42,7 +42,7 @@ const dialogContent = {
       ),
     },
     about: {
-      dialogTitle: "About",
+      dialogTitle: "ABOUT",
       dialogContent: () => (
         <>
           <DialogContentText id="alert-dialog-slide-description">
@@ -102,7 +102,7 @@ function MenuDialogs(props) {
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle>{content.dialogTitle}</DialogTitle>
+        <DialogTitle style={{alignSelf: "center"}}>{content.dialogTitle}</DialogTitle>
         <DialogContent>{content.dialogContent()}</DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>close</Button>
