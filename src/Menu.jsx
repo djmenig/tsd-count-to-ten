@@ -34,7 +34,7 @@ function BasicMenu() {
         onClick={handleClick}
         style={{position: "absolute", top: 5, right: 0}}
       >
-        <MenuIcon />
+        <MenuIcon fontSize='large'/>
       </Button>
       <Menu
         id="basic-menu"
