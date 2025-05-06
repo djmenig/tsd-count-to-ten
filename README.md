@@ -13,13 +13,13 @@
 - [x] ~~Unload Particles when gameReset function is called~~
 - [x] ~~Complete reset game function~~
 - [x] ~~Finish congratulations alert/modal when all matches have been made~~
-- [ ] Fix Numbers array bug - update Numbers array before removing draggable tile
 - [x] ~~Add modals for all menu entries~~
 - [x] ~~Add animation for onClick for KoreanTiles~~
 - [ ] Add "scramble" button for KoreanTiles
 - [ ] Add reset button to reset the game
 - [ ] Adjust KoreanTiles font styles for a more clean look (margins?)
 - [ ] Adjust tiles and media queries for a organized look on all devices
+- [ ] Fix Numbers array bug - update Numbers array before removing draggable tile
 - [ ] Add grabbing cursor when dragging NumberTiles
 - [ ] Add visual for audio events that are occurring (e.g., KoreanTile sounds)
 - [ ] Fix sizing issues that occur on some devices
