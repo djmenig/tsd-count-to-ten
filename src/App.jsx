@@ -8,12 +8,13 @@ import sounds from "./assets/sounds/sounds";
 import AlertDialogSlide from "./AlertDialogSlide";
 import Paper from "@mui/material/Paper";
 import ConfettiParticles from "./ConfettiParticles";
+import SortButton from "./SortButton";
 
 function App() {
   const [gameOver, setGameOver] = useState(false);
   const [numbers, setNumbers] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   const [matchedTileData, setMatchedTileData] = useState({});
-  const wordsAndSymbols = React.useMemo(() => [
+  const wordsAndSymbolsOrigin = React.useMemo(() => [
     { id: 1, word: "hana", symbol: "하나", sound: new Audio(sounds.hana) },
     { id: 2, word: "dul", symbol: "둘", sound: new Audio(sounds.dul) },
     { id: 3, word: "set", symbol: "셋", sound: new Audio(sounds.set) },
@@ -25,11 +26,17 @@ function App() {
     { id: 9, word: "ahop", symbol: "아홉", sound: new Audio(sounds.ahop) },
     { id: 10, word: "yeol", symbol: "열", sound: new Audio(sounds.yeol) },
   ]);
+  const [wordsAndSymbols, setWordsAndSymbols] = useState(wordsAndSymbolsOrigin);
   const soundEffects = React.useMemo(() => [
     { id: 1, sound: new Audio(sounds.correct1) },
     { id: 2, sound: new Audio(sounds.incorrect1) },
   ]);
 
+function sortWordsAndSymbols() {
+  setWordsAndSymbols(wordsAndSymbols.sort());
+  console.log("clicked");
+}
+console.log(wordsAndSymbols);
   function handleClick(sound, word) {
     sound.currentTime= 0;
     sound.play();
@@ -96,12 +103,15 @@ function App() {
   return (
     <>
       <Paper elevation='5' id="gameBoard">
+        <SortButton sortWordsAndSymbols={sortWordsAndSymbols} />
         <BasicMenu />
         <Grid container spacing={2} alignItems={"center"}>
           <DndContext onDragEnd={handleOnDragEnd}>
-            <Grid size={3}>
-              <NumberTiles numbers={numbers} matchedTileData={matchedTileData} />
-            </Grid>
+            <div className="numberTilesContainer">
+              <Grid size={3}>
+                <NumberTiles numbers={numbers} matchedTileData={matchedTileData} />
+              </Grid>
+            </div>
             <Grid size={9}>
               <KoreanTiles wordsAndSymbols={wordsAndSymbols} handleClick={handleClick} />
             </Grid>
