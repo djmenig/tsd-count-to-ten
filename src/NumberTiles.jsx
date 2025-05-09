@@ -71,6 +71,7 @@ function NumberTiles({ numbers, matchedTileData }) {
                     borderRadius: "10px",
                     borderWidth: "2px",
                     padding: "14px",
+                    minHeight: "624px"
                 }}
             >
                 <AnimatePresence>
