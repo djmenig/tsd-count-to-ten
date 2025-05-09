@@ -19,8 +19,11 @@
 - [x] ~~Add "scramble" button for KoreanTiles~~
 - [x] ~~Add reset button to reset the game~~
 - [x] ~~Position elements accordingly~~
-- [ ] Prevent number tiles container from shrinking when removing a tile
-- [ ] Make scramble button functional
+- [x] ~~Prevent number tiles container from shrinking when removing a tile~~
+- [x] ~~Make scramble button functional~~
+- [ ] Implement use.Memo hook on sort function in order to unnecessary resorting on every re-render
+- [ ] Create placeholder for numberTiles that matches the border of the container and appears only when tile is removed
+- [ ] Adjust menu mouseover highlight size according to placement of icon on the gameboard
 - [ ] Adjust KoreanTiles font styles for a more clean look (margins?)
 - [ ] Adjust tiles and media queries for a organized look on all devices
 - [ ] Fix Numbers array bug - update Numbers array before removing draggable tile
