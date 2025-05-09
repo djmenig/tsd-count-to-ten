@@ -8,7 +8,7 @@ import sounds from "./assets/sounds/sounds";
 import AlertDialogSlide from "./AlertDialogSlide";
 import Paper from "@mui/material/Paper";
 import ConfettiParticles from "./ConfettiParticles";
-import SortButton from "./SortButton";
+import Button from '@mui/material/Button';
 
 function App() {
   const [gameOver, setGameOver] = useState(false);
@@ -103,23 +103,31 @@ console.log(wordsAndSymbols);
   return (
     <>
       <Paper elevation='5' id="gameBoard">
-        <SortButton sortWordsAndSymbols={sortWordsAndSymbols} />
+
         <BasicMenu />
-        <Grid container spacing={2} alignItems={"center"}>
-          <DndContext onDragEnd={handleOnDragEnd}>
-            <div className="numberTilesContainer">
-              <Grid size={3}>
-                <NumberTiles numbers={numbers} matchedTileData={matchedTileData} />
-              </Grid>
-            </div>
-            <Grid size={9}>
+
+        <DndContext onDragEnd={handleOnDragEnd}>
+
+          <div className="mainContentContainer">
+            <NumberTiles numbers={numbers} matchedTileData={matchedTileData} />
+
+            <div className="rightSideOfGameboardContainer">
+              <div className="buttonContainer">
+                <Button variant="contained" sx={{width: "100px"}} onClick={sortWordsAndSymbols}>SHUFFLE</Button>
+                <Button variant="contained" sx={{width: "100px"}} onClick={gameReset} color="error">RESET</Button>
+              </div>
+              
               <KoreanTiles wordsAndSymbols={wordsAndSymbols} handleClick={handleClick} />
-            </Grid>
-          </DndContext>
-        </Grid>
+            </div>
+
+           </div>
+
+        </DndContext>
+
         <ConfettiParticles gameOver={gameOver} />
+
       </Paper>
-      
+
       <AlertDialogSlide gameOver={gameOver} gameReset={gameReset} />
     </>
   );

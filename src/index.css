@@ -40,8 +40,29 @@ body {
   position: relative;
   justify-content: center;
   align-items: center;
+  padding: 0;
+  margin: 0;
+}
+.mainContentContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  gap: 18px;
 }
 
+.rightSideOfGameboardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.buttonContainer {
+  gap: 16px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
 @media (prefers-color-scheme: dark) {
   :root {
     color: rgba(255, 255, 255, 0.87);

@@ -67,6 +67,10 @@ function NumberTiles({ numbers, matchedTileData }) {
                     flexDirection: "column",
                     gap: "16px",
                     justifyContent: "center",
+                    border: "solid rgba(0, 0, 0, 0.05)",
+                    borderRadius: "10px",
+                    borderWidth: "2px",
+                    padding: "14px",
                 }}
             >
                 <AnimatePresence>
