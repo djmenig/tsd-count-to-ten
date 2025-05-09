@@ -15,10 +15,12 @@
 - [x] ~~Finish congratulations alert/modal when all matches have been made~~
 - [x] ~~Add modals for all menu entries~~
 - [x] ~~Add animation for onClick for KoreanTiles~~
-- [ ] Stylize NumberTiles container
-- [ ] Add "scramble" button for KoreanTiles
-- [ ] Add reset button to reset the game
-- [ ] Position elements accordingly
+- [x] ~~Stylize NumberTiles container~~
+- [x] ~~Add "scramble" button for KoreanTiles~~
+- [x] ~~Add reset button to reset the game~~
+- [x] ~~Position elements accordingly~~
+- [ ] Prevent number tiles container from shrinking when removing a tile
+- [ ] Make scramble button functional
 - [ ] Adjust KoreanTiles font styles for a more clean look (margins?)
 - [ ] Adjust tiles and media queries for a organized look on all devices
 - [ ] Fix Numbers array bug - update Numbers array before removing draggable tile
