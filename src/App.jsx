@@ -32,11 +32,12 @@ function App() {
     { id: 2, sound: new Audio(sounds.incorrect1) },
   ]);
 
-function sortWordsAndSymbols() {
-  setWordsAndSymbols(wordsAndSymbols.sort());
-  console.log("clicked");
-}
-console.log(wordsAndSymbols);
+  function sortWordsAndSymbols() {
+    setWordsAndSymbols([...wordsAndSymbols].sort(() => Math.random() - 0.5));
+    console.log("clicked");
+  }
+  console.log(wordsAndSymbols);
+  
   function handleClick(sound, word) {
     sound.currentTime= 0;
     sound.play();
@@ -59,6 +60,7 @@ console.log(wordsAndSymbols);
     console.log("gameReset Triggered");
     setGameOver(false);
     setNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    setWordsAndSymbols(wordsAndSymbolsOrigin);
     setMatchedTileData({});
   };
 
