@@ -24,14 +24,14 @@ const dialogContent = {
       dialogTitle: "HOW TO PLAY",
       dialogContent: () => (
         <>
-        <DialogContentText id="alert-dialog-slide-description">
+        <DialogContentText id="alert-dialog-slide-description" color='black'>
           Object of the game:
         </DialogContentText>
         <List disablePadding>
           <ListItem><ListItemText secondary="Match all number tiles to their corresponding Korean tiles." /></ListItem>
         </List>
         <br />
-        <DialogContentText id="alert-dialog-slide-description">
+        <DialogContentText id="alert-dialog-slide-description" color='black'>
           Gameplay:
         </DialogContentText>
           <List disablePadding>
@@ -50,11 +50,9 @@ const dialogContent = {
             <br />
             Developer: Donald Menig
             <br />
-            <br />
             <a href="https://github.com/djmenig/wtsda-count-to-ten" target="_blank">Github</a>
           </DialogContentText>
-          <br />
-          <br />
+          <hr />
           <small>© {date.getFullYear()} Donald J. Menig. All Rights Reserved.</small>
         </>
       ),
