@@ -53,7 +53,7 @@ function KoreanTiles({wordsAndSymbols, handleClick}) {
                     gridTemplateColumns: "1fr 1fr",
                     gap: "16px",
                     placeItems: "center",
-                    marginBottom: "12px",
+                    marginBottom: "16px",
                 }}
             >
                 {wordsAndSymbols.map((n) => (
