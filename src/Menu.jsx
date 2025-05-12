@@ -32,9 +32,9 @@ function BasicMenu() {
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
-        style={{position: "absolute", top: -2, right: -14}}
+        style={{position: "absolute", top: 0, right: 0, padding: 0,}}
       >
-        <MenuIcon fontSize='medium'/>
+        <MenuIcon fontSize='large'/>
       </Button>
       <Menu
         id="basic-menu"

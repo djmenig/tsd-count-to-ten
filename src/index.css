@@ -20,11 +20,9 @@ body {
   display: grid;
   margin: 0;
   place-items: center;
-  /* min-width: 320px; */
-  min-width: 100svw;
-  min-width: 100vw;
   min-height: 100svh;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 #tsparticles {
@@ -42,8 +40,8 @@ body {
   position: relative;
   justify-content: center;
   align-items: center;
-  padding: 0;
   margin: 0;
+  width: 100%;
 }
 .mainContentContainer {
   display: flex;
@@ -52,6 +50,8 @@ body {
   width: 100%;
   gap: 18px;
 }
+
+
 
 .rightSideOfGameboardContainer {
   display: flex;
@@ -63,7 +63,6 @@ body {
   gap: 16px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 18px;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -84,9 +83,15 @@ body {
     height: 100svh;
     height: 100vh;
   }
+  .buttonContainer {
+    margin-bottom: 10px;
+  }
 }
 @media screen and (min-width: 431px) {
   #gameBoard {
     padding: 50px;
+  }
+  .buttonContainer {
+    margin-bottom: 22px;
   }
 }
