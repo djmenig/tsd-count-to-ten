@@ -1,6 +1,10 @@
-# Simple game to help learn counting to ten in Native Korean.
+# TSD Count to Ten
 
-### URL to test current state: https://wtsda-count-to-ten.onrender.com/
+## This game was made to aid in learning to count to ten in Native Korean. It is one of the first thing you learn in the Tang Soo Do martial art.
+
+### Current URL: https://tsd-count-to-ten.onrender.com/
+
+<img src="public/alphaScreenshot2.png" width="250" />
 
 ### To do:
 - [x] ~~Lift NumberTiles.jsx state~~
@@ -30,5 +34,3 @@
 - [ ] Add grabbing cursor when dragging NumberTiles
 - [ ] Add visual for audio events that are occurring (e.g., KoreanTile sounds)
 - [x] ~~Fix sizing issues that occur on some devices~~
-
-<img src="/public/alphaScreenshot1.png" width="250" />
